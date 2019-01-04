@@ -8,6 +8,6 @@ Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false
 
-new Vue({
+var vm = new Vue({
   render: h => h(GettingData),
 }).$mount('#app')
