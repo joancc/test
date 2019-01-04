@@ -1,11 +1,26 @@
 <template>
-  <div>Getting Data from axios</div>
+  <div>
+    <!-- selecciona sucursal -->
+    <div class="select-branch">
+      <WelcomeBack></WelcomeBack>
+      <div class="columns">
+        <CompaniesComponent></CompaniesComponent>
+        <BranchesComponent></BranchesComponent>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 import axios from "axios";
+import WelcomeBack from "./WelcomeBack.vue";
+import CompaniesComponent from "./CompaniesComponent";
 
 export default {
+  components: {
+    WelcomeBack: WelcomeBack,
+    CompaniesComponent: CompaniesComponent
+  },
   data() {
     return {
       users: {},
