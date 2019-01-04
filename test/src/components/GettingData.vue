@@ -19,15 +19,42 @@ export default {
       })
       .then(function(response) {
         let accessKey = "Bearer " + response.data.access_token;
-        let newUrl = "https://api-test.gestionix.com/api/v3/users/93";
+        let urlUser = "https://api-test.gestionix.com/api/v3/users/93";
+        let urlCompanie =
+          "https://api-test.gestionix.com/api/v3/users/companies";
+        let urlBranch =
+          "https://api-test.gestionix.com/api/v3/branch_offices/?";
         localStorage.setItem("access-token", accessKey);
         axios.defaults.headers.common["Authorization"] = localStorage.getItem(
           "access-token"
         );
         axios
-          .get(newUrl)
+          .get(urlUser)
           .then(function(res) {
+            // Get user data. Get n2
             console.log(res.data);
+          })
+          .catch(function(err) {
+            console.log(err);
+          });
+        axios
+          .get(urlCompanie)
+          .then(function(resp) {
+            // Get Companies data. Get n3
+            console.log(resp.data);
+            localStorage.setItem("company-id", resp.data[0].company_id);
+            axios.defaults.headers.common["Company"] = localStorage.getItem(
+              "company-id"
+            );
+            axios
+              .get(urlBranch)
+              .then(function(re) {
+                // Get Branches. Get n4
+                console.log(re.data);
+              })
+              .catch(function(err) {
+                console.log(err);
+              });
           })
           .catch(function(err) {
             console.log(err);
