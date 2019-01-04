@@ -3,9 +3,11 @@
     <button class="select-item">
       <div class="info">
         <p>
-          <strong>{{enterpriseName}}</strong>
+          <strong v-if="keyType == 'RFC'">{{enterpriseName}}</strong>
+          <strong v-else-if="keyType == 'Clave'">{{warehouseTitle}}</strong>
           <span class="on"></span>
-          <span>{{keyType}}: {{rfc}}</span>
+          <span v-if="keyType == 'RFC'">{{keyType}}: {{rfc}}</span>
+          <span v-else-if="keyType == 'Clave'">{{keyType}}: {{warehouseKey}}</span>
         </p>
       </div>
     </button>
