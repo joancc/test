@@ -1,6 +1,6 @@
 <template>
   <div class="item company">
-    <button class="select-item">
+    <button class="select-item" :disabled="!isactive ? '' : disabled">
       <!-- The button has or not a disabled property-->
       <div class="info">
         <p>
