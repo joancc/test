@@ -2,7 +2,6 @@
   <div>
     <!-- selecciona sucursal -->
     <div class="select-branch">
-      <WelcomeBack></WelcomeBack>
       <div class="columns">
         <CompaniesComponent></CompaniesComponent>
         <BranchesComponent></BranchesComponent>
@@ -13,12 +12,12 @@
 
 <script>
 import axios from "axios";
-import WelcomeBack from "./WelcomeBack.vue";
 import CompaniesComponent from "./CompaniesComponent";
+import BranchesComponent from "./BranchesComponent";
 
 export default {
   components: {
-    WelcomeBack: WelcomeBack,
+    BranchesComponent: BranchesComponent,
     CompaniesComponent: CompaniesComponent
   },
   data() {
