@@ -1,10 +1,13 @@
 <template>
   <div class="item company">
+    <!--Is needed to change the company class for warehouse class if needed-->
     <button class="select-item" :disabled="!isactive ? '' : disabled">
       <!-- The button has or not a disabled property-->
       <div class="info">
         <p>
           <strong>{{warehouseTitle}}</strong>
+          <!--Find the way of use isactive to active the display none property-->
+          <!--<span v-bind:style="{ display: none }"></span>-->
           <span v-bind:class="{'on': isactive}"></span>
           <i v-bind:class="{'fg-lock-alt': !isactive}"></i>
           <span v-if="keyType == 'RFC'">{{keyType}}: {{rfc}}</span>
